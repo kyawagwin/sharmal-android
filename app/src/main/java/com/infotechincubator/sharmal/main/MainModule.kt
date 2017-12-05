@@ -1,6 +1,7 @@
 package com.infotechincubator.sharmal.main
 
 import android.support.v7.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.infotechincubator.sharmal.base.ActivityModule
 import dagger.Module
 import dagger.Provides
@@ -10,10 +11,9 @@ import dagger.Provides
  */
 @Module
 class MainModule(
-        activity: AppCompatActivity,
-        val data: String
+        activity: AppCompatActivity
 ): ActivityModule(activity) {
 
     @Provides
-    fun provideData(): String = data
+    fun provideData(): String = "Hello World!"
 }
