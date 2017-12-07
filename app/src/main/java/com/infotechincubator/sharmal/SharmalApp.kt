@@ -1,6 +1,7 @@
 package com.infotechincubator.sharmal
 
 import android.app.Application
+import com.cloudinary.android.MediaManager
 
 /**
  * Created by kyawagwin on 29/11/17.
@@ -13,6 +14,8 @@ class SharmalApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        MediaManager.init(this)
 
         initDependencyGraph()
     }

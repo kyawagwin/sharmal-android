@@ -2,6 +2,7 @@ package com.infotechincubator.sharmal
 
 import android.app.Application
 import android.content.Context
+import com.cloudinary.android.MediaManager
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
