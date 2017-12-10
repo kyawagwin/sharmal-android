@@ -53,12 +53,14 @@
             android:name=".capture.TakePhotoActivity"
             android:label="Take photo">
 
+        </activity>
+
+        <activity android:name=".listingwizard.ListingWizardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <!--

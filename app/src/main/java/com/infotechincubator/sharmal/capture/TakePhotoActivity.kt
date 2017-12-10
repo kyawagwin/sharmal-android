@@ -4,18 +4,19 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import com.cloudinary.android.MediaManager
 import com.infotechincubator.sharmal.R
+import com.infotechincubator.sharmal.extension.requestPermissionsExt
+import com.infotechincubator.sharmal.model.PermissionsRequestModel
+import com.infotechincubator.sharmal.util.SharmalUtils
 import kotlinx.android.synthetic.main.activity_take_photo.*
 import java.io.File
 import java.io.IOException
@@ -24,14 +25,26 @@ import java.util.*
 
 /**
  * Created by kyawagwin on 7/12/17.
+ *
+ * 1. request permission
+ * 2. dispatch camera intent
+ * 3. save photo on public directory to be able to access from gallery
  */
-class TakePhotoActivity: AppCompatActivity() {
+class TakePhotoActivity : AppCompatActivity() {
 
-    var photoFile: File? = null
+    lateinit var photoFile: File
 
     companion object {
-        val REQUEST_CAMERA_PERMISSION: Int = 10
+        val REQUEST_CAMERA_PERMISSION_CODE: Int = 10
         val REQUEST_TAKE_PHOTO: Int = 1
+
+        val cameraPermissions: Array<String> = arrayOf(
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+
+        val requestCameraPermissions: PermissionsRequestModel =
+                PermissionsRequestModel(REQUEST_CAMERA_PERMISSION_CODE, cameraPermissions)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,41 +52,19 @@ class TakePhotoActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_take_photo)
 
-        //checkPermissions()
-
-        takePhotoBtn.setOnClickListener { view: View? -> checkPermissions() }
-    }
-
-    // 1
-    private fun checkPermissions() {
-        val permission = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.CAMERA)
-
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            Log.i("setupPermissions", "Permission to use camera denied")
-            makeRequest()
-        } else {
-            dispatchTakePhotoIntent()
-        }
-    }
-
-    // 2
-    private fun makeRequest() {
-        ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.CAMERA),
-                REQUEST_CAMERA_PERMISSION)
+        takePhotoBtn.setOnClickListener { view: View? -> requestPermissionsExt(requestCameraPermissions, dispatchTakePhotoIntent()) }
     }
 
     // 3
     private fun dispatchTakePhotoIntent() {
         try {
-            photoFile = createImageFile()
+            photoFile = SharmalUtils.createImageFile()
             val photoURI = FileProvider.getUriForFile(this, "com.infotechincubator.sharmal.fileprovider", photoFile)
             val takePhotoIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
             startActivityForResult(takePhotoIntent, REQUEST_TAKE_PHOTO)
         } catch (ex: IOException) {
-
+            Log.i("dispatchTakePhotoIntent", ex.toString())
         }
     }
 
@@ -85,36 +76,35 @@ class TakePhotoActivity: AppCompatActivity() {
         this.sendBroadcast(mediaScanIntent)
     }
 
-    @Throws(IOException::class)
-    private fun createImageFile(): File {
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val imageFileName = "JPEG_" + timeStamp + "_"
-        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-
-        return File.createTempFile(imageFileName, ".jpg", storageDir)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_TAKE_PHOTO) {
 
-            galleryAddPhoto()
+            if (resultCode == Activity.RESULT_OK) {
+                val photoUri = Uri.fromFile(photoFile)
 
-            //val extra = data?.extras
-            //val imageBitmap = extra?.get("data") as Bitmap
-            //photoIV.setImageBitmap(imageBitmap)
+                galleryAddPhoto()
+                MediaManager.get().upload(photoUri).option("public_id", photoFile?.nameWithoutExtension).dispatch()
+                photoIV.setImageURI(photoUri)
+            } else {
+                photoFile.delete()
+            }
         }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when (requestCode) {
-            REQUEST_CAMERA_PERMISSION -> {
+        var allPermissionsGranted = true
 
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    Log.i("Result", "Permission has been denied by user")
-                } else {
-                    Log.i("Result", "Permission has been granted by user")
-                    dispatchTakePhotoIntent()
+        when (requestCode) {
+            requestCameraPermissions.requestCode -> {
+
+                for (i in requestCameraPermissions.permissions.indices) {
+                    if (grantResults.isEmpty() || grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        Log.i("Result", "Permission has been denied by user")
+                        allPermissionsGranted = false
+                    }
                 }
+
+                if (allPermissionsGranted) dispatchTakePhotoIntent()
             }
         }
     }

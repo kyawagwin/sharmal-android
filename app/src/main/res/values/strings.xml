@@ -1,4 +1,86 @@
 <resources>
     <string name="app_name">Sharmal</string>
     <string name="title_activity_maps">Map</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra malesuada enim, at ullamcorper enim. Maecenas at convallis elit, id placerat purus. Donec hendrerit pharetra ex in interdum. Vestibulum vulputate, lacus eu vehicula porttitor, odio justo ullamcorper arcu, ut faucibus mauris orci ut ligula. Etiam eget tellus tempor, suscipit quam at, hendrerit risus. Integer sollicitudin massa nec felis mattis, sed fringilla neque tincidunt. Cras tortor est, condimentum a nisi id, blandit tincidunt purus. Maecenas quis efficitur odio, sit amet vestibulum nisi. Nunc viverra, mi nec venenatis mollis, sem sem aliquet leo, vitae rhoncus ligula ante id nibh. Mauris purus ligula, faucibus non laoreet quis, venenatis ac tellus. Vestibulum eu leo sit amet lacus mollis tincidunt in in turpis. Fusce varius aliquam elementum. Quisque imperdiet enim sit amet pulvinar varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper vel odio ac mollis. Pellentesque et faucibus ex. Nunc id massa turpis. Donec feugiat, ligula at semper iaculis, felis arcu gravida lectus, non luctus libero enim ut libero. Duis nec tempor sapien, sit amet mattis arcu. Aenean egestas blandit tortor, efficitur sodales purus iaculis nec. Nullam laoreet condimentum odio ac tincidunt. Vivamus auctor fringilla pretium. Mauris in luctus sapien, eu dictum nisl. Maecenas dui felis, tempor at molestie a, mollis non augue. Integer enim diam, congue at enim pellentesque, ultrices porta orci. Nunc nisi augue, mollis quis aliquam id, dictum at nibh. Suspendisse sed iaculis nisl. Morbi gravida, lectus sed tincidunt vestibulum, risus eros aliquet nisi, vitae commodo metus odio eu nibh. Maecenas semper nec purus vitae dapibus. Etiam sit amet risus ut neque suscipit tristique sit amet vitae neque. Aliquam ac ipsum suscipit, cursus arcu eget, sagittis urna. Mauris euismod purus ac enim interdum pulvinar. Fusce egestas quis lectus a tincidunt. Morbi convallis venenatis tellus a fringilla. Nunc consectetur porttitor augue, non sollicitudin velit mollis in. Suspendisse vitae turpis eu ligula pellentesque rhoncus id ut velit. Mauris a tortor eu mi maximus ultricies. Aliquam erat volutpat. Etiam efficitur venenatis leo et aliquet. Donec et imperdiet erat, id sagittis lacus. Ut vel nunc placerat, imperdiet nisi eu, dictum leo. Mauris libero arcu, finibus eu erat et, laoreet euismod odio.
+    </string>
+
+    <string-array name="locations">
+        <item></item>
+        <item>Ahlon</item>
+        <item>Bahan</item>
+        <item>Botahtaung</item>
+        <item>Cocokyun</item>
+    </string-array>
+
+    <string-array name="floorLevels">
+        <item>Ground</item>
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
+        <item>9th</item>
+        <item>10th</item>
+        <item>11th</item>
+        <item>12th</item>
+        <item>13th</item>
+        <item>14th</item>
+        <item>15th</item>
+        <item>16th</item>
+        <item>17th</item>
+        <item>18th</item>
+        <item>19th</item>
+        <item>20th</item>
+        <item>21th</item>
+        <item>22th</item>
+        <item>23th</item>
+        <item>24th</item>
+        <item>25th</item>
+        <item>26th</item>
+        <item>27th</item>
+        <item>28th</item>
+        <item>29th</item>
+        <item>30th</item>
+    </string-array>
+
+    <string-array name="PropertyTypes">
+        <item>Apartment</item>
+        <item>Condo</item>
+        <item>Landed House</item>
+        <item>Office</item>
+        <item>Retail</item>
+        <item>Land</item>
+    </string-array>
+
+    <string-array name="ListingTypes">
+        <item>Sale</item>
+        <item>Rent</item>
+        <item>Room</item>
+    </string-array>
+
+    <string-array name="PropertyConditions">
+        <item>Original</item>
+        <item>Renovated</item>
+    </string-array>
+
+    <string-array name="PropertyBedrooms">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="PropertyBathrooms">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>

@@ -2,6 +2,9 @@ package com.infotechincubator.sharmal
 
 import android.app.Application
 import com.cloudinary.android.MediaManager
+import android.os.StrictMode
+
+
 
 /**
  * Created by kyawagwin on 29/11/17.

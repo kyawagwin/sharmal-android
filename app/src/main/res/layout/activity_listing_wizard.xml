@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.infotechincubator.sharmal.listingwizard.WizardViewPager
+        android:layout_weight="1"
+        android:id="@+id/activity_listing_wizard_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <Button
+        android:id="@+id/activity_listing_wizard_nextButton"
+        android:text="Next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

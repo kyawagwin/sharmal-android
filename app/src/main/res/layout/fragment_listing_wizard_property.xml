@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_propertyTypeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Property type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_sizeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Size (sqf)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_propertyTypeSpinner" />
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_conditionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Condition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_sizeET" />
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_bedroomCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Number of bedrooms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionSMB" />
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_bathroomCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Number of bathrooms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountSMB" />
+
+        <TextView
+            android:id="@+id/fragment_listing_wizard_property_descriptionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Descriptions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountSMB" />
+
+        <Spinner
+            android:id="@+id/fragment_listing_wizard_property_propertyTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_propertyTypeTV" />
+
+        <EditText
+            android:id="@+id/fragment_listing_wizard_property_sizeET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="1250"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_sizeTV" />
+
+        <lib.kingja.switchbutton.SwitchMultiButton
+            android:id="@+id/fragment_listing_wizard_property_conditionSMB"
+            app:strokeRadius="4dp"
+            app:strokeWidth="1dp"
+            app:selectedTab="0"
+            app:selectedColor="@color/colorAccent"
+            app:switchTabs="@array/PropertyConditions"
+            app:textSize="14sp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionTV" />
+
+        <lib.kingja.switchbutton.SwitchMultiButton
+            android:id="@+id/fragment_listing_wizard_property_bedroomCountSMB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountTV"
+            app:selectedColor="@color/colorAccent"
+            app:selectedTab="3"
+            app:strokeRadius="4dp"
+            app:strokeWidth="1dp"
+            app:switchTabs="@array/PropertyBedrooms"
+            app:textSize="14sp" />
+
+        <lib.kingja.switchbutton.SwitchMultiButton
+            android:id="@+id/fragment_listing_wizard_property_bathroomCountSMB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountTV"
+            app:selectedColor="@color/colorAccent"
+            app:selectedTab="3"
+            app:strokeRadius="4dp"
+            app:strokeWidth="1dp"
+            app:switchTabs="@array/PropertyBathrooms"
+            app:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/fragment_listing_wizard_property_descriptionET"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_descriptionTV" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
