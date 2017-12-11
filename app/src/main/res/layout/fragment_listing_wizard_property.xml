@@ -47,7 +47,7 @@
             android:layout_marginTop="8dp"
             android:text="Number of bedrooms"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionSMB" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionGroup" />
 
         <TextView
             android:id="@+id/fragment_listing_wizard_property_bathroomCountTV"
@@ -57,7 +57,7 @@
             android:layout_marginTop="8dp"
             android:text="Number of bathrooms"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountSMB" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountGroup" />
 
         <TextView
             android:id="@+id/fragment_listing_wizard_property_descriptionTV"
@@ -67,7 +67,7 @@
             android:layout_marginTop="8dp"
             android:text="Descriptions"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountSMB" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountGroup" />
 
         <Spinner
             android:id="@+id/fragment_listing_wizard_property_propertyTypeSpinner"
@@ -94,15 +94,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_sizeTV" />
 
-        <lib.kingja.switchbutton.SwitchMultiButton
-            android:id="@+id/fragment_listing_wizard_property_conditionSMB"
-            app:strokeRadius="4dp"
-            app:strokeWidth="1dp"
-            app:selectedTab="0"
-            app:selectedColor="@color/colorAccent"
-            app:switchTabs="@array/PropertyConditions"
-            app:textSize="14sp"
-            android:padding="8dp"
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/fragment_listing_wizard_property_conditionGroup"
+            android:orientation="horizontal"
+            app:sc_tint_color="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -110,43 +105,151 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionTV" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_conditionTV">
 
-        <lib.kingja.switchbutton.SwitchMultiButton
-            android:id="@+id/fragment_listing_wizard_property_bedroomCountSMB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountTV"
-            app:selectedColor="@color/colorAccent"
-            app:selectedTab="3"
-            app:strokeRadius="4dp"
-            app:strokeWidth="1dp"
-            app:switchTabs="@array/PropertyBedrooms"
-            app:textSize="14sp" />
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_conditionOriginal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Original"
+                style="@style/RadioButton"/>
 
-        <lib.kingja.switchbutton.SwitchMultiButton
-            android:id="@+id/fragment_listing_wizard_property_bathroomCountSMB"
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_conditionRenovated"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Renovated"
+                style="@style/RadioButton"/>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/fragment_listing_wizard_property_bedroomCountGroup"
+            android:orientation="horizontal"
+            app:sc_tint_color="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountTV"
-            app:selectedColor="@color/colorAccent"
-            app:selectedTab="3"
-            app:strokeRadius="4dp"
-            app:strokeWidth="1dp"
-            app:switchTabs="@array/PropertyBathrooms"
-            app:textSize="14sp" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bedroomCountTV">
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_0"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="2"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bedroomCount_5"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="5"
+                style="@style/RadioButton"/>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:orientation="horizontal"
+            app:sc_tint_color="@color/colorAccent"
+            android:id="@+id/fragment_listing_wizard_property_bathroomCountGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_property_bathroomCountTV">
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_0"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="0"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="2"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                style="@style/RadioButton"/>
+
+            <RadioButton
+                android:id="@+id/fragment_listing_wizard_property_bathroomCount_5"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="5"
+                style="@style/RadioButton"/>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
 
         <EditText
             android:id="@+id/fragment_listing_wizard_property_descriptionET"

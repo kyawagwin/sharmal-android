@@ -1,7 +1,7 @@
 package com.infotechincubator.sharmal.listingwizard
 
-import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,18 +23,18 @@ class ListingWizardMapFragment: Fragment(), OnMapReadyCallback {
 
     private var map: GoogleMap? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_listing_wizard_map, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_listing_wizard_map, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         fragment_listing_wizard_mapView.onCreate(savedInstanceState)
         fragment_listing_wizard_mapView.onResume()
 
         try {
-            MapsInitializer.initialize(activity.applicationContext)
+            MapsInitializer.initialize(activity?.applicationContext)
         } catch (e: Exception) {
             e.printStackTrace()
         }

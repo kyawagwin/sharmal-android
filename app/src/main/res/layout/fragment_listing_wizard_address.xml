@@ -100,6 +100,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_address_floorLevelTV" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Button"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_listing_wizard_address_floorLevelSpinner"
+            tools:layout_editor_absoluteX="190dp" />
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
