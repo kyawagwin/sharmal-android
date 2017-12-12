@@ -1,5 +1,6 @@
 package com.infotechincubator.sharmal.util
 
+import android.content.res.Resources
 import android.os.Environment
 import java.io.File
 import java.io.IOException
@@ -23,5 +24,13 @@ object SharmalUtils {
         val storageDir = Environment.getExternalStoragePublicDirectory("pictures/sharmal")
 
         return File.createTempFile(imageFileName, ".jpg", storageDir)
+    }
+
+    fun dpToPx(dp: Int): Int {
+        return (dp * Resources.getSystem().getDisplayMetrics().density).toInt()
+    }
+
+    fun pxToDp(px: Int): Int {
+        return (px / Resources.getSystem().getDisplayMetrics().density).toInt()
     }
 }
