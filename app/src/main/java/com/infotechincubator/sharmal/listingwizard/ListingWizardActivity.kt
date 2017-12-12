@@ -26,7 +26,8 @@ class ListingWizardActivity: AppCompatActivity(), View.OnClickListener {
         wizardFragments = arrayOf(
                 ListingWizardAddressFragment(),
                 ListingWizardMapFragment(),
-                ListingWizardPropertyFragment())
+                ListingWizardPropertyFragment(),
+                ListingWizardPhotoFragment())
 
         adapter = WizardPagerAdapter(supportFragmentManager)
         adapter.addFragments(wizardFragments)
