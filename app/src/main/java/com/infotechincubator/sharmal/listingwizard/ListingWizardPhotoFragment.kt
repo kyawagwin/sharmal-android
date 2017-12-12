@@ -30,7 +30,7 @@ class ListingWizardPhotoFragment: Fragment(), View.OnClickListener {
                 .title("Add Photo")
                 .content("Add photo dialog")
                 .positiveText("Add")
-                .negativeText("Cancel")
+                .negativeText("Cancel")  
                 .onPositive { dialog, which ->
                     addImageView()
                 }
